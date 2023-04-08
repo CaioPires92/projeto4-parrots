@@ -53,6 +53,35 @@ function randomLetters() {
 
 startGame()
 
+// function clickLetter(card) {
+//   const backFace = card.querySelector('.back-face')
+
+//   if (counter == 0) {
+//     time = setInterval(timeCounter, 1000)
+//   }
+
+//   if (backFace.classList.contains('.selected-back') === false) {
+//     spinLetter(card)
+//     counter++
+//     if (selectedStatus === false) {
+//       chosenLetter = card
+//       selectedStatus = true
+//     } else if (chosenLetter.innerHTML !== card.innerHTML) {
+//       selectedStatus = false
+//       setTimeout(spinLetter, 1000, chosenLetter)
+//       setTimeout(spinLetter, 1000, card)
+//       chosenLetter = null
+//     } else {
+//       selectedStatus = false
+//       equalLetter.push(card.classList[1])
+//     }
+//     if (equalLetter.length === amountPairs) {
+//       clearTimeout(time)
+//       setTimeout(endGame, 1000)
+//     }
+//   }
+// }
+
 function clickLetter(card) {
   const backFace = card.querySelector('.back-face')
 
@@ -60,7 +89,10 @@ function clickLetter(card) {
     time = setInterval(timeCounter, 1000)
   }
 
-  if (backFace.classList.contains('.selected-back') === false) {
+  if (
+    backFace.classList.contains('.selected-back') === false &&
+    card !== chosenLetter
+  ) {
     spinLetter(card)
     counter++
     if (selectedStatus === false) {
@@ -101,7 +133,7 @@ function endGame() {
     `Você ganhou em ${counter} jogadas! A duração do jogo foi de ${clock.innerHTML} segundos!`
   )
 
-  let restart = prompt('Deseja reiniciar a partida? sim ou não')
+  let restart = prompt('Você gostaria de reiniciar a partida? (sim ou não)')
 
   while (restart !== 'sim' && restart !== 'não') {
     restart = prompt(`Digite sim ou não!`)

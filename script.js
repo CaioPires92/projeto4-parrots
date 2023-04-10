@@ -1,6 +1,6 @@
 const cards = []
 
-const gifts = [
+const cardsArray = [
   'bobrossparrot',
   'explodyparrot',
   'fiestaparrot',
@@ -24,10 +24,10 @@ function startGame() {
     amountLetters = parseInt(prompt(`Digite um número par entre 4 e 14!`))
   }
 
-  gifts.sort(randomLetters)
+  cardsArray.sort(randomLetters)
 
   for (let i = 0; i < amountLetters / 2; i++) {
-    cards.push(gifts[i], gifts[i])
+    cards.push(cardsArray[i], cardsArray[i])
   }
 
   amountPairs = amountLetters / 2
@@ -52,35 +52,6 @@ function randomLetters() {
 }
 
 startGame()
-
-// function clickLetter(card) {
-//   const backFace = card.querySelector('.back-face')
-
-//   if (counter == 0) {
-//     time = setInterval(timeCounter, 1000)
-//   }
-
-//   if (backFace.classList.contains('.selected-back') === false) {
-//     spinLetter(card)
-//     counter++
-//     if (selectedStatus === false) {
-//       chosenLetter = card
-//       selectedStatus = true
-//     } else if (chosenLetter.innerHTML !== card.innerHTML) {
-//       selectedStatus = false
-//       setTimeout(spinLetter, 1000, chosenLetter)
-//       setTimeout(spinLetter, 1000, card)
-//       chosenLetter = null
-//     } else {
-//       selectedStatus = false
-//       equalLetter.push(card.classList[1])
-//     }
-//     if (equalLetter.length === amountPairs) {
-//       clearTimeout(time)
-//       setTimeout(endGame, 1000)
-//     }
-//   }
-// }
 
 function clickLetter(card) {
   const backFace = card.querySelector('.back-face')
